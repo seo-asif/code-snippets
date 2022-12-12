@@ -1,0 +1,13 @@
+if ( ! function_exists( 'ld_modify_contact_methods' ) ) :
+ 
+    function ld_modify_contact_methods( $contactmethods ) {
+        $contactmethods['address_1'] = __( 'Address line 1' );
+        $contactmethods['address_2'] = __( 'Address line 2' );
+        $contactmethods['town'] = __( 'Town' );
+        $contactmethods['postcode'] = __( 'Postcode' );
+ 
+        return $contactmethods;
+    }
+    add_filter('user_contactmethods','ld_modify_contact_methods', 10, 1);
+ 
+endif;
