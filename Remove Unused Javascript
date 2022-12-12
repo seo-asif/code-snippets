@@ -1,0 +1,14 @@
+function wp_remove_scripts() {
+// check if user is admina
+    if (current_user_can( 'update_core' )) {
+            return;
+        }
+    else {
+    // Check for the page you want to target
+    if ( is_page( 'homepage' ) ) {
+        // Remove Scripts
+        wp_dequeue_style( 'jquery-ui-core' );
+        }
+    }
+}
+add_action( 'wp_enqueue_scripts', 'wp_remove_scripts', 99 );
