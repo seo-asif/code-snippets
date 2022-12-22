@@ -1,0 +1,71 @@
+<style>
+body{
+    --speed: 10s;
+}
+.sliding-text .elementor-widget-wrap{
+    display: block !important;
+}
+.sliding-text .elementor-widget{
+    overflow: hidden;
+    width: 10000vw !important;
+    max-width: 10000vw !important;
+}
+.sliding-text .sliding .elementor-widget-container{
+    -webkit-animation: sliding var(--speed) linear infinite;
+    -moz-animation: sliding var(--speed) linear infinite;
+    -o-animation: sliding var(--speed) linear infinite;
+    animation: sliding var(--speed) linear infinite;
+}
+.sliding-text .elementor-widget-container{
+    float: left;
+}
+.sliding-text.reverse .elementor-widget-wrap{
+    transform: rotate(180deg);
+}
+.sliding-text.reverse .sliding .elementor-heading-title{
+    transform: scale(-1, -1);
+}
+@keyframe sliding{
+0%{ transform: translateX(0); }
+100%{ transform: translateX(-100%); }
+}
+@-webkit-keyframes sliding {
+0%{ transform: translateX(0); }
+100%{ transform: translateX(-100%); }
+}
+@-moz-keyframes sliding {
+0%{ transform: translateX(0); }
+100%{ transform: translateX(-100%); }
+}
+@-o-keyframes sliding {
+0%{ transform: translateX(0); }
+100%{ transform: translateX(-100%); }
+}
+@keyframes sliding {
+0%{ transform: translateX(0); }
+100%{ transform: translateX(-100%); }
+}
+</style>
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script>
+var $ = jQuery
+$(document).ready(function(){
+    var h = []
+    $('.sliding-text').each(function(){
+        h.push($(this).find('.elementor-widget').clone().html())
+    })
+    
+    function init(){
+        $('.sliding-text').each(function(i){
+            var $this = $(this)
+            $this.find('.elementor-widget').removeClass('sliding')
+            var amount = Math.ceil($(window).width()/$(this).find('.elementor-widget-container').outerWidth(true)) + 1
+            $this.find('.elementor-widget').empty().addClass('sliding')
+            $this.find('.elementor-widget').html(h[i].repeat(amount))
+        })  
+    }
+    
+    init()
+    $(window).on('load resize', init)
+})
+</script>
