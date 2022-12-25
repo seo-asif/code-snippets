@@ -10,6 +10,9 @@ body{
     width: 10000vw !important;
     max-width: 10000vw !important;
 }
+
+
+
 .sliding-text .sliding .elementor-widget-container{
     -webkit-animation: sliding var(--speed) linear infinite;
     -moz-animation: sliding var(--speed) linear infinite;
