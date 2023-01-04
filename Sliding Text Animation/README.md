@@ -2,9 +2,7 @@ Code snippet for Controlling Speed Individually (optional):<br><br>
 selector<br>{<br>
     --speed: 10s;<br>
 }
- 
 
- 
 
 Code snippet for Making Text Stroke:<br><br>
 selector<br>{<br>
